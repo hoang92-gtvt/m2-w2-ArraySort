@@ -11,9 +11,7 @@ public class ArraySort<T> {
 
     @Override
     public String toString() {
-        return "ArraySort{" +
-                "array=" + Arrays.toString(array) +
-                '}';
+        return  Arrays.toString(array) ;
     }
 
     public void bubleSort(){
@@ -102,19 +100,27 @@ public class ArraySort<T> {
 
     public void insertSort2(){
         for (int i = 1; i < array.length; i++) {
-//            int value1 = (Integer) array[i-1];
-//            int value2 = (Integer) array[i];
-//            if(value2<value1) {
                 T temp= array[i];
                 int j;
                 for (j=i-1 ; j>=0; j--) {
-                    if ((Integer)temp < (Integer)array[j]) {
-                    array[j+1]=array[j];
-                    }else break;
+                    if(array[i]instanceof Integer) {
+                        if ((Integer) temp < (Integer) array[j]) {
+                            array[j + 1] = array[j];
+                        } else break;
+                    }else if(array[i]instanceof String) {
+                        String str1= temp.toString();
+                        String str2= array[j].toString();
+
+                        if (str1.compareToIgnoreCase(str2)<0) {
+                            array[j + 1] = array[j];
+                        } else break;
+                    }
                 }
                 array[j+1]=temp;
-//            }
         }
     }
+
+
+
 
 }

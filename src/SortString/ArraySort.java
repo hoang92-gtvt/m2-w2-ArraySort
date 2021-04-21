@@ -80,4 +80,41 @@ public class ArraySort<T> {
         }
     }
 
+    public void insertSort(){
+        for (int i = 1; i < array.length; i++) {
+            int value1 = (Integer) array[i-1];
+            int value2 = (Integer) array[i];
+            if(value2<value1) {
+                 T temp= array[i];
+                 array[i]=array[i-1];
+                 array[i-1]=temp;
+                for (int j = i-1; j>0; j--) {
+                    if ((Integer)array[j] < (Integer)array[j-1]) {
+                        T temp2= array[j];
+                        array[j]=array[j-1];
+                        array[j-1]=temp2;
+                    }else break;
+                }
+
+            }
+        }
+    }
+
+    public void insertSort2(){
+        for (int i = 1; i < array.length; i++) {
+//            int value1 = (Integer) array[i-1];
+//            int value2 = (Integer) array[i];
+//            if(value2<value1) {
+                T temp= array[i];
+                int j;
+                for (j=i-1 ; j>=0; j--) {
+                    if ((Integer)temp < (Integer)array[j]) {
+                    array[j+1]=array[j];
+                    }else break;
+                }
+                array[j+1]=temp;
+//            }
+        }
+    }
+
 }
